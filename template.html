@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Weather Guessing Game - Results</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Guessing Game Results</h1>
+        <p><span class="bold">City:</span> {{CITY}}</p>
+        <p><span class="bold">Your guess:</span> {{GUESS}}°C</p>
+        <p><span class="bold">Actual temperature:</span> {{TEMPERATURE}}°C</p>
+        <p>{{RESULT}}</p>
+        <form action="index.html" method="GET">
+            <button type="submit">Play Again</button>
+        </form>
+    </div>
+</body>
+</html>
