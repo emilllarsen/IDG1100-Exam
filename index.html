@@ -13,5 +13,21 @@
         <li>Guess the current temperature in that city.</li>
         <li>If your guess is within 5°C, you win!</li>
     </ul>
+    <form action="" method="post">
+        <label for="city">City:</label>
+        <select name="city" id="city">
+            <option value="London">London</option>
+            <option value="Tokyo">Tokyo</option>
+            <option value="Sydney">Sydney</option>
+            <option value="Cairo">Cairo</option>
+            <option value="Paris">Paris</option>
+            <option value="Moscow">Moscow</option>
+            <option value="Beijing">Beijing</option>
+            <option value="Toronto">Toronto</option>
+        </select>
+    </form>
+    <label for="guess">Your temperature guess in (°C):</label>
+    <input type="number" name="guess" id="guess" required>
+    <button type="submit">Submit guess</button>
 </body>
 </html>
