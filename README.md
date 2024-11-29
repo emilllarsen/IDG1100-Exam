@@ -6,7 +6,8 @@ If you want to automaticly host this site, follow this instruction:
 (dont type this: {your path} is your directory path. If you for example put idg1100-exam in "/var/www" then this is your command: sudo chmod +x /var/www/idg1100-exam/deploy_script.sh)
 
 2: inside terminal type this out:
- - ./{your path}/idg1100-exam/deploy_script.sh
+ - cd /{your path}/idg1100-exam
+ - ./deploy_script.sh
 
 
 If you want to manually host this site, follow this instruction: 
