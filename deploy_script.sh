@@ -44,7 +44,7 @@ EOL
 
 # This is to enable the site
 sudo a2ensite "${hostname}.conf"
-echo "Site is now enabled for $hostname"
+echo "Site is enabled for $hostname. No need to reload Apache."
 sudo a2enmod cgi
 
 
