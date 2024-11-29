@@ -43,8 +43,7 @@ sudo bash -c "cat > $conf_file" << EOL
 EOL
 
 # This is to enable the site
-
-sudo ln -s "/etc/apache2/sites-available/${hostname}.conf" "/etc/apache2/sites-enabled/${hostname}.conf"
+sudo a2ensite "${hostname}.conf"
 echo "Site is now enabled for $hostname"
 sudo a2enmod cgi
 
