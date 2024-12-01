@@ -21,7 +21,7 @@ WEATHER_RESPONSE=$(curl -s "https://api.open-meteo.com/v1/forecast?latitude=$LAT
 TEMPERATURE=$(echo "$WEATHER_RESPONSE" | jq -r '.current_weather.temperature')
 
 # Compare user's guess with the actual temperature
-DIFF=$(echo "$TEMPERATURE - $GUESS" | bc | awk '{print ($1<0)?-$1:$1}')  # Absolute difference
+DIFF=$(echo "$TEMPERATURE - $GUESS" | bc)  # Absolute difference
 if (( $(echo "$DIFF <= 5" | bc -l) )); then
     RESULT="You Win! 🎉"
 else
