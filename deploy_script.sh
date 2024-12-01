@@ -35,7 +35,7 @@ sudo bash -c "cat > $conf_file" << EOL
         ServerName $hostname.com
         DocumentRoot $site_directory
     <Directory $site_directory>
-        Options +Indexes +ExecCGI
+        Options +ExecCGI
         AddHandler cgi-script .sh
         Require all granted
     </Directory>
