@@ -1,14 +1,11 @@
 # idg1100-exam
 If you want to automaticly host this site, follow this instruction:
 
-1: open the terminal and type this out: 
- - sudo chmod +x /{your path}/idg1100-exam/deploy_script.sh      
-(dont type this: {your path} is your directory path. If you for example put idg1100-exam in "/var/www" then this is your command: sudo chmod +x /var/www/idg1100-exam/deploy_script.sh)
-
-2: inside terminal type this out:
+1: Open terminal and type this out:
  - cd /{your path}/idg1100-exam
  - ./deploy_script.sh
-
+ 
+-----------------------------------------------------------------------------------------------------
 
 If you want to manually host this site, follow this instruction: 
 
@@ -34,3 +31,6 @@ If you want to manually host this site, follow this instruction:
  - sudo a2enmod cgi
  - sudo systemctl restart apache2
 
+This is what i have in my crontab: 
+ - */5 * * * * /var/www/idg1100-exam/cpu_disk.sh
+ - * * * * * /var/www/idg1100-exam/check_apache.sh
