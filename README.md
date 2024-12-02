@@ -1,8 +1,9 @@
 # idg1100-exam
 If you want to automaticly host this site, follow this instruction:
 
-1: Open terminal and type this out:
+1: Open terminal and type this out: 
  - cd /{your path}/idg1100-exam
+ Dont type this: {your path} is where you put idg1100-exam in your system. This is a example: /var/www/idg1100-exam or /home/emilvl/idg1100-exam
  - ./deploy_script.sh
  
 -----------------------------------------------------------------------------------------------------
