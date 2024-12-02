@@ -3,32 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Weather Guessing Game</title>
 </head>
 <body>
-    <h1>Weather guessing game</h1>
-    <p>Welcome to the Weather Guessing Game! Here is how to play:</p>
-    <ul>
-        <li>Choose a city from the dropdown menu.</li>
-        <li>Guess the current temperature in that city.</li>
-        <li>If your guess is within 5°C, you win!</li>
-    </ul>
-    <form action="./game.sh" method="post">
-        <label for="city">City:</label>
-        <select name="city" id="city">
-            <option value="London">London</option>
-            <option value="Tokyo">Tokyo</option>
-            <option value="Sydney">Sydney</option>
-            <option value="Cairo">Cairo</option>
-            <option value="Paris">Paris</option>
-            <option value="Moscow">Moscow</option>
-            <option value="Beijing">Beijing</option>
-            <option value="Toronto">Toronto</option>
-        </select>
-        <label for="guess"><span class="bold">Your temperature guess in (°C):</span></label>
-        <input type="number" name="guess" id="guess" required>
-        <button type="submit"><span class="bold">Submit guess</span></button>
-    </form>
-
+    <div class="game-container">
+        <h1>Weather guessing game</h1>
+        <p>Welcome, here is how to play:</p>
+        <ul>
+            <li>Choose a city from the dropdown menu.</li>
+            <li>Guess the current temperature in that city.</li>
+            <li>If your guess is within 5°C, you win!</li>
+        </ul>
+        <form action="./game.sh" method="post">
+            <label for="city" class="bold">City:</label>
+            <select name="city" id="city">
+                <option value="London">London</option>
+                <option value="Tokyo">Tokyo</option>
+                <option value="Sydney">Sydney</option>
+                <option value="Cairo">Cairo</option>
+                <option value="Paris">Paris</option>
+                <option value="Moscow">Moscow</option>
+                <option value="Beijing">Beijing</option>
+                <option value="Toronto">Toronto</option>
+            </select>
+            <label for="guess" class="bold">Your temperature guess in (°C):</label>
+            <input type="number" name="guess" id="guess" required>
+            <button type="submit">Submit guess</button>
+        </form>
+    </div>
 </body>
 </html>
