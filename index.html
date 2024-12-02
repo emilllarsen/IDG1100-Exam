@@ -11,10 +11,11 @@
         <h1>Weather guessing game</h1>
         <p>Welcome, here is how to play:</p>
         <ul>
-            <li>Choose a city from the dropdown menu.</li>
-            <li>Guess the current temperature in that city.</li>
-            <li>If your guess is within 5°C, you win!</li>
-        </ul>
+            <li>Select a city.</li>
+            <li>Choose difficulty: Easy (5°C), Medium (3°C), Hard (1°C).</li>
+            <li>Win if your guess is within the tolerance for your difficulty.</li>
+            <li>Guess the temperature.</li>
+        </ul>        
         <form action="./game.sh" method="post">
             <label for="city" class="bold">City:</label>
             <select name="city" id="city">
@@ -26,6 +27,12 @@
                 <option value="Moscow">Moscow</option>
                 <option value="Beijing">Beijing</option>
                 <option value="Toronto">Toronto</option>
+            </select>
+            <label for="difficulty" class="bold">Difficulty:</label>
+            <select name="difficulty" id="difficulty">
+                <option value="easy">Easy (5°C)</option>
+                <option value="medium">Medium (3°C)</option>
+                <option value="hard">Hard (1°C)</option>
             </select>
             <label for="guess" class="bold">Your temperature guess in (°C):</label>
             <input type="number" name="guess" id="guess" required>

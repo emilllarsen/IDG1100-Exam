@@ -11,6 +11,9 @@ read POST_DATA
 CITY=$(echo "$POST_DATA" | sed 's/.*city=\([^&]*\).*/\1/')
 GUESS=$(echo "$POST_DATA" | sed 's/.*guess=\([^&]*\).*/\1/')
 
+# Source difficulty.sh for handling difficulty
+source ./difficulty.sh
+
 # Fetch Latitude and Longitude using Nominatim API.
 GEO_RESPONSE=$(curl -s "https://nominatim.openstreetmap.org/search?q=$CITY&format=json&limit=1")
 LATITUDE=$(echo "$GEO_RESPONSE" | jq -r '.[0].lat')
@@ -23,7 +26,7 @@ TEMPERATURE=$(echo "$WEATHER_RESPONSE" | jq -r '.current_weather.temperature')
 # Compare user's guess with the actual temperature.
 DIFF=$(echo "$TEMPERATURE - $GUESS" | bc)
 DIFF=${DIFF#-}  # Get the absolute value
-if (( $(echo "$DIFF <= 5" | bc -l) )); then # -l to calculate decimals.
+if (( $(echo "$DIFF <= $TOLERANCE" | bc -l) )); then # -l to calculate decimals.
     RESULT="You win!"
 else
     RESULT="You lose."
