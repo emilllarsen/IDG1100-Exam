@@ -52,8 +52,7 @@ fi
 sudo mkdir -p "$site_directory"
 
 #This will copy every file to the directory that the user chooses. I use sudo if the user does not have permission to write to the directory.
-sudo cp ./index.html ./template.html ./game.sh ./style.css ./weatherguesser.conf ./README.md "$site_directory"
-echo "All the files is now copyed to your $site_directory"
+sudo cp ./index.html ./template.html ./game.sh ./style.css ./difficulty.sh "$site_directory"
 
 # This is for the bashscript to executable. 
 sudo chmod +x "$site_directory/game.sh"
