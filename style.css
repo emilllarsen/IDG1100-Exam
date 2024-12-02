@@ -13,8 +13,10 @@ body {
 .game-container {
     border: 2px solid black; /* Border around the game */
     padding: 1rem;         /* Padding inside the border */
-    width: 24rem;
-    height: 24rem;
+}
+
+h1 {
+    margin-top: 0;
 }
 
 form {
