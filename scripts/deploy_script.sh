@@ -5,7 +5,7 @@
 read -p "Enter det hostname of your site: " hostname
 
 #Here the user selects where the site is located in the file system.
-read -p "Enter the directory of there you want to deploy your site from. (example: /var/www/mysite)IMPORTANT you need to specify the directory place with /:" site_directory
+read -p "Enter the directory of where you want to deploy your site from. (example: /var/www/mysite)IMPORTANT you need to specify the directory place with /:" site_directory
 
 
 #Will check if the user has apache on their system. If not the script will try to install
@@ -52,10 +52,10 @@ fi
 sudo mkdir -p "$site_directory"
 
 #This will copy every file to the directory that the user chooses. I use sudo if the user does not have permission to write to the directory.
-sudo cp ./index.html ./template.html ./game.sh ./style.css ./difficulty.sh "$site_directory"
+sudo cp ../index.html ../pages/template.html ./game.sh ../css/style.css ./difficulty.sh "$site_directory"
 
 # This is for the bashscript to executable. 
-sudo chmod +x "$site_directory/game.sh"
+sudo chmod +x "$site_directory/scripts/game.sh"
 
 #This is for apache to accsess to have permission. Else the site will not work. 
 sudo chown -R www-data:www-data "$site_directory"

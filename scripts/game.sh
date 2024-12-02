@@ -33,7 +33,7 @@ else
 fi
 
 # Load HTML template and replace placeholders.
-cat template.html \
+cat ../pages/template.html \
     | sed "s/{{CITY}}/$CITY/g" \
     | sed "s/{{GUESS}}/$GUESS/g" \
     | sed "s/{{TEMPERATURE}}/$TEMPERATURE/g" \
