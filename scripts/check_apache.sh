@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apache_log=/var/www/idg1100-exam/apache.log
+apache_log=/var/www/idg1100-exam/logs/apache.log
 time=$(date '+%Y-%m-%d %H:%M:%S')
 
 if sudo systemctl is-active --quiet apache2; then
