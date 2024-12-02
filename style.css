@@ -1,3 +1,32 @@
+html {
+    font-size: 16px;  /* Default font size */
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    height: 100vh;            /* Full viewport height */
+}
+
+.game-container {
+    border: 2px solid black; /* Border around the game */
+    padding: 1rem;         /* Padding inside the border */
+    width: 24rem;
+    height: 24rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;   /* Stack the elements vertically */
+    gap: 0.5rem;            /* Space between elements */
+}
+
+label {
+    margin-top: 1rem; /* Space under label */
+}
+
 .bold {
     font-weight: bold;
 }
