@@ -8,10 +8,44 @@ read -p "Enter det hostname of your site: " hostname
 read -p "Enter the directory of there you want to deploy your site from. (example: /var/www/mysite)IMPORTANT you need to specify the directory place with /:" site_directory
 
 
-#This will check if the user has Apache on their system. If Apache is not installed the script will not work, so the user needs to have it!
+#Will check if the user has apache on their system. If not the script will try to install
 if ! command -v apache2 &> /dev/null; then
-    echo "Apache is not installed. Please install Apache first!"
-    exit 1
+    echo "Apache is not installed. Trying to install Apache!"
+    if sudo apt install apache2 -y; then
+        echo "Apache is installed"
+    else
+        echo "Failed to install Apache"
+    fi
+fi
+
+sudo systemctl start apache2
+
+# This will check if the user has jq installed on their system. If not the script will try to install it. Important to have this, because the API will not work if not. 
+if ! command -v jq &> /dev/null; then
+    echo "jq is not installed! Trying to install jq!"
+    if sudo apt install jq -y; then
+        ehco "jq is installed"
+    else
+        echo "Failed to install jq."
+    fi
+fi
+# This will check if the user has sed on their system. If not the script will try to install it. sed is usally pre installed, but it is just so be sure. 
+if ! command -v sed &> /dev/null; then
+    echo "sed in not installed. Trying to install sed"
+    if sudo apt install sed -y; then
+        echo "sed is installed"
+    else
+        echo "Failed to install sed"
+    fi
+fi
+#This will check it the user has bc on their system. If not the script will try to install it. bc is usally pre installed, but its just to be sure. 
+if ! command -v bc &> /dev/null; then
+    echo "bc is not installed. Trying to install it"
+    if sudo apt install bc -y; then
+        echo "bc is installed"
+    else
+        echo "failed to install bc"
+    fi
 fi
 
 # This will create the directory if the scripts see that apache is installed on the system. I use sudo in case the user selects a directory that is not in their home directory.
