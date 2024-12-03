@@ -52,7 +52,7 @@ fi
 sudo mkdir -p "$site_directory"
 
 #This will copy every file to the directory that the user chooses. I use sudo if the user does not have permission to write to the directory.
-sudo cp ../index.html ../pages/template.html ./game.sh ../css/style.css ./difficulty.sh "$site_directory"
+sudo cp -r ../* "$site_directory"
 
 # This is for the bashscript to executable. 
 sudo chmod +x "$site_directory/scripts/game.sh"
@@ -74,7 +74,6 @@ sudo bash -c "cat > $conf_file" << EOL
     </Directory>
 </VirtualHost>
 EOL
-
 # This is to enable the site
 sudo a2ensite "${hostname}.conf"
 echo "Site is enabled for $hostname. No need to reload Apache."
