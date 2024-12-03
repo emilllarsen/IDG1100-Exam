@@ -28,7 +28,7 @@ If you want to manually host this site, follow this instruction:
 
 6: Play the game in your browser at www.weatherguesser.com.
 
-7: Should you encounter any error, the cause might be a permission issue. Make sure Apache and you have the neccesary permissions by running the following commands in the terminal:
+7: Should you encounter any error when loading the game, the cause might be a permission issue. Make sure Apache and you have the neccesary permissions by running the following commands in the terminal:
  - sudo chmod +x /var/www/idg1100-exam/game.sh
  - sudo chown -R www-data:www-data /var/www/idg1100-exam
 
