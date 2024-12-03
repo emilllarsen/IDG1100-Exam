@@ -54,12 +54,8 @@ sudo mkdir -p "$site_directory"
 #This will copy every file to the directory that the user chooses. I use sudo if the user does not have permission to write to the directory.
 sudo cp -r ../* "$site_directory"
 
-# This is for the bashscript to executable. 
-sudo chmod +x "$site_directory/scripts/game.sh"
-
-#This is for apache to accsess to have permission. Else the site will not work. 
-sudo chown -R www-data:www-data "$site_directory"
-
+# User as owner, Apache as group
+sudo chown -R $(whoami):www-data "$site_directory"
 
 # This is what will go into the /etc/apache2/sites-available directory to host the site on the server.
 conf_file="/etc/apache2/sites-available/${hostname}.conf"
