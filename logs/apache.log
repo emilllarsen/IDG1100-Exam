@@ -4,3 +4,6 @@ apache is running
 apache is running
 apache is running
 
+2024-12-03 14:13:03 Apache is not running. Trying to restart Apache
+2024-12-03 14:13:03 -- apache succsessfully restarted
+apache is running

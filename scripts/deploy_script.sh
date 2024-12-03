@@ -79,7 +79,7 @@ sudo a2enmod cgi
 #This will check if the hostname is already in /etc/hosts. If not it will go do the next if statment
 host_file=$(sudo cat /etc/hosts)
 if [[ "$host_file" == *"$hostname"* ]]; then
-    echo "The $hostname already existin /etc/hosts"
+    echo "The $hostname already exist in /etc/hosts"
 else 
     echo "127.0.0.1 $hostname.com" | sudo tee -a /etc/hosts > /dev/null
     echo "The $hostname is now added to /etc/hosts"
@@ -88,4 +88,4 @@ fi
 
 # This will reload apache and it will work after. Changes will  not be set if apache is not reloaded or restarted. 
 sudo systemctl restart apache2
-echo "The deployment is now compleate. You can access your site at http://$hostname.com"
+echo "The deployment is now complete. You can access your site at http://$hostname.com"
