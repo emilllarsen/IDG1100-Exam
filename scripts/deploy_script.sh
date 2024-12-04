@@ -72,9 +72,9 @@ sudo bash -c "cat > $conf_file" << EOL
 </VirtualHost>
 EOL
 # This is to enable the site
-sudo a2ensite "${hostname}.conf"
-echo "Site is enabled for $hostname. No need to reload Apache."
-sudo a2enmod cgi
+sudo a2ensite "${hostname}.conf" > /dev/null
+echo "Site is enabled for $hostname."
+sudo a2enmod cgi > /dev/null
 
 
 #This will check if the hostname is already in /etc/hosts. If not it will go do the next if statment
