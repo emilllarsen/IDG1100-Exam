@@ -1,38 +1,38 @@
 #!/bin/bash
 
-# This is called Content-type header, it informs the client about the type of the returned data.
+#This is called Content-type header, it informs the client about the type of the returned data.
 echo "Content-type: text/html"
 echo ""
 
-# Read POST request data, store it in variable.
+#Read POST request data, store it in variable.
 read POST_DATA
 
-# Extract city and guess, store it in variables.
+#Extract city and guess, store it in variables.
 CITY=$(echo "$POST_DATA" | sed 's/.*city=\([^&]*\).*/\1/')
 GUESS=$(echo "$POST_DATA" | sed 's/.*guess=\([^&]*\).*/\1/')
 
-# Source difficulty.sh for handling difficulty
+#Source difficulty.sh for handling difficulty.
 source ./difficulty.sh
 
-# Fetch Latitude and Longitude using Nominatim API.
-GEO_RESPONSE=$(curl -s "https://nominatim.openstreetmap.org/search?q=$CITY&format=json&limit=1")
+#Fetch Latitude and Longitude using Nominatim API.
+GEO_RESPONSE=$(curl "https://nominatim.openstreetmap.org/search?q=$CITY&format=json&limit=1")
 LATITUDE=$(echo "$GEO_RESPONSE" | jq -r '.[0].lat')
 LONGITUDE=$(echo "$GEO_RESPONSE" | jq -r '.[0].lon')
 
-# Fetch current temperature using Open-Meteo API.
-WEATHER_RESPONSE=$(curl -s "https://api.open-meteo.com/v1/forecast?latitude=$LATITUDE&longitude=$LONGITUDE&current_weather=true")
+#Fetch current temperature using Open-Meteo API.
+WEATHER_RESPONSE=$(curl "https://api.open-meteo.com/v1/forecast?latitude=$LATITUDE&longitude=$LONGITUDE&current_weather=true")
 TEMPERATURE=$(echo "$WEATHER_RESPONSE" | jq -r '.current_weather.temperature')
 
-# Compare user's guess with the actual temperature.
+#Compare user's guess with the actual temperature.
 DIFF=$(echo "$TEMPERATURE - $GUESS" | bc)
-DIFF=${DIFF#-}  # Get the absolute value
+DIFF=${DIFF#-}  #Get the absolute value
 if (( $(echo "$DIFF <= $TOLERANCE" | bc -l) )); then # -l to calculate decimals.
     RESULT="You win!"
 else
     RESULT="You lose."
 fi
 
-# Load HTML template and replace placeholders.
+#Load HTML template and replace placeholders.
 cat ../pages/template.html \
     | sed "s/{{CITY}}/$CITY/g" \
     | sed "s/{{GUESS}}/$GUESS/g" \
